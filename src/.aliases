@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+function prefer-abbrev-alias {
+    if command -v abbrev-alias >/dev/null 2>&1; then
+        abbrev-alias "$@"
+    else
+        alias "$@"
+    fi
+}
+
+# cd
+prefer-abbrev-alias ..=' cd ..'
+prefer-abbrev-alias ...=' cd ../..'
+prefer-abbrev-alias ....=' cd ../../..'
+prefer-abbrev-alias .....=' cd ../../../..'
+prefer-abbrev-alias ~=' cd ~'
+
+# ll
+prefer-addrev-alias ll='ls -la'
+
+# git
+prefer-abbrev-alias g='git'
+prefer-abbrev-alias ga='git add'
+prefer-abbrev-alias gd='git diff'
+prefer-abbrev-alias gs=' git status --short --branch'
+prefer-abbrev-alias gg=' git graph'
+prefer-abbrev-alias gm='git merge --ff-only'
+
+# docker-compose
+if command -v docker-compose >/dev/null 2>&1; then
+    prefer-abbrev-alias dc='docker-compose'
+fi
+

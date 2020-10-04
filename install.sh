@@ -4,16 +4,24 @@
 set -eu
 
 # 実行場所のディレクトリを取得
-THIS_DIR=$HOME/dotfiles
+DOTFILES_DIR=$HOME/dotfiles
 
-if [ ! -d "$THIS_DIR" ]; then
-    git clone https://github.com/dkzkb/dotfiles.git "$THIS_DIR"
+if [ ! -d "$DOTFILES_DIR" ]; then
+    git clone https://github.com/dkzkb/dotfiles.git "$DOTFILES_DIR"
 else
-    echo "$THIS_DIR already downloaded. Updating..."
-    cd "$THIS_DIR"
+    echo "$DOTFILES_DIR already downloaded. Updating..."
+    cd "$DOTFILES_DIR"
     git stash
     git checkout main
     git fetch --prune origin main
     git pull origin main
     echo
 fi
+
+cd "$DOTFILES_DIR"
+
+mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
+ln -fsv "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
+
+mv "$HOME/.aliases" "$HOME/.aliases.bak"
+ln -fsv "$DOTFILES_DIR/.aliases" "$HOME/.aliases"

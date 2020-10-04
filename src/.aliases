@@ -16,7 +16,7 @@ prefer-abbrev-alias .....=' cd ../../../..'
 prefer-abbrev-alias ~=' cd ~'
 
 # ll
-prefer-addrev-alias ll='ls -la'
+prefer-abbrev-alias ll='ls -la'
 
 # git
 prefer-abbrev-alias g='git'

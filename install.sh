@@ -1,7 +1,8 @@
   
 #!/bin/bash
 
-set -eu
+set -e
+set -u
 
 # 実行場所のディレクトリを取得
 DOTFILES_DIR=$HOME/dotfiles
@@ -21,6 +22,7 @@ fi
 cd "$DOTFILES_DIR"
 
 test -e "$HOME/.bashrc" || mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
-ln -fsv "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
+ln -fsv "$DOTFILES_DIR/src/.bashrc" "$HOME/.bashrc"
 
-ln -fsv "$DOTFILES_DIR/.aliases" "$HOME/.aliases"
+test -e "$HOME/.aliases" || mv "$HOME/.aliases" "$HOME/.aliases.bak"
+ln -fsv "$DOTFILES_DIR/src/.aliases" "$HOME/.aliases"

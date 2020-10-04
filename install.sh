@@ -23,5 +23,4 @@ cd "$DOTFILES_DIR"
 test -e "$HOME/.bashrc" || mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
 ln -fsv "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
 
-# test -e "$HOME/.aliases" || mv "$HOME/.aliases" "$HOME/.aliases.bak"
 ln -fsv "$DOTFILES_DIR/.aliases" "$HOME/.aliases"

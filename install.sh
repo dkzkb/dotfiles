@@ -4,8 +4,7 @@
 set -e
 set -u
 
-# 実行場所のディレクトリを取得
-DOTFILES_DIR=$HOME/dotfiles
+DOTFILES_DIR=$HOME/dotfiles/src
 
 if [ ! -d "$DOTFILES_DIR" ]; then
     git clone https://github.com/dkzkb/dotfiles.git "$DOTFILES_DIR"
@@ -20,9 +19,10 @@ else
 fi
 
 cd "$DOTFILES_DIR"
+pwd
 
 test -e "$HOME/.aliases" && mv "$HOME/.aliases" "$HOME/.aliases.bak"
-ln -fsv "$DOTFILES_DIR/src/.aliases" "$HOME/.aliases"
+ln -fsv "$DOTFILES_DIR/.aliases" "$HOME/.aliases"
 
 test -e "$HOME/.bashrc" && mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
-ln -fsv "$DOTFILES_DIR/src/.bashrc" "$HOME/.bashrc"
+ln -fsv "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"

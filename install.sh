@@ -25,4 +25,4 @@ test -e "$HOME/.bashrc" || mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
 ln -fsv "$DOTFILES_DIR/src/.bashrc" "$HOME/.bashrc"
 
 test -e "$HOME/.aliases" || mv "$HOME/.aliases" "$HOME/.aliases.bak"
-ln -fsv "$DOTFILES_DIR/src/.aliases" "$HOME/.aliases"
+# ln -fsv "$DOTFILES_DIR/src/.aliases" "$HOME/.aliases"

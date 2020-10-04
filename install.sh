@@ -22,7 +22,7 @@ cd "$DOTFILES_DIR"
 pwd
 
 test -e "$HOME/.aliases" && mv "$HOME/.aliases" "$HOME/.aliases.bak"
-ln -fsv "$DOTFILES_DIR/.aliases" "$HOME/.aliases"
+ln -sf "$DOTFILES_DIR/.aliases" "$HOME/.aliases"
 
 test -e "$HOME/.bashrc" && mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
-ln -fsv "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
+ln -sf "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"

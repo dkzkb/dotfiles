@@ -18,6 +18,10 @@ else
     echo
 fi
 
+testfunc () {
+    echo 'test'
+}
+
 cd "$DOTFILES_DIR"
 pwd
 

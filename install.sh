@@ -17,8 +17,8 @@ create_link () {
      _name=$1
 
      if [ -e "$HOME/$_name" ]; then
+         echo "mv $HOME/$_name $HOME/$name.bak"
          mv "$HOME/$_name" "$HOME/$name.bak"
-	 echo "mv $HOME/$_name $HOME/$name.bak"
      fi
 
      ln -fsv "$ROOT/src/$_name" "$HOME/$_name"

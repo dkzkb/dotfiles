@@ -19,7 +19,7 @@ else
 fi
 
 testfunc () {
-    echo 'test'
+    echo "test"
 }
 
 testfunc

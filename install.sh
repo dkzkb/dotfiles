@@ -7,7 +7,7 @@ set -u
 DOTFILES_DIR=$HOME/dotfiles/src
 
 if [ ! -d "$DOTFILES_DIR" ]; then
-    git clone https://github.com/dkzkb/dotfiles.git "$DOTFILES_DIR"
+    git clone https://github.com/dkzkb/dotfiles.git
 else
     echo "$DOTFILES_DIR already downloaded. Updating..."
     cd "$DOTFILES_DIR"

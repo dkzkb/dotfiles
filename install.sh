@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 set -u
@@ -12,7 +12,7 @@ fi
 
 mkdir -p ~/.zsh
 
-create_link () {
+function create_link {
      local _name
      _name=$1
 

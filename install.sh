@@ -1,32 +1,19 @@
+  
 #!/bin/bash
 
-set -e
-set -u
+set -eu
 
-ROOT=${ROOT:-~/src/github.com/dkzkb/dotfiles}
+# 実行場所のディレクトリを取得
+THIS_DIR=$HOME/dotfiles
 
-if [ ! -d "$ROOT" ]; then
-    git clone https://github.com/dkzkb/dotfiles.git "$ROOT"
-    echo 'git clone'
+if [ ! -d "$THIS_DIR" ]; then
+    git clone https://github.com/dkzkb/dotfiles.git "$THIS_DIR"
+else
+    echo "$THIS_DIR already downloaded. Updating..."
+    cd "$THIS_DIR"
+    git stash
+    git checkout main
+    git fetch --prune origin main
+    git pull origin main
+    echo
 fi
-
-mkdir -p ~/.zsh
-
-function create_link {
-     local _name
-     _name=$1
-
-     if [ -e "$HOME/$_name" ]; then
-         echo "mv $HOME/$_name $HOME/$name.bak"
-         mv "$HOME/$_name" "$HOME/$name.bak"
-     fi
-
-     ln -fsv "$ROOT/src/$_name" "$HOME/$_name"
-     echo "ln -fsv $ROOT/src/$_name $HOME/$_name"
-}
-
-create_link .zsh/.zshrc
-create_link .aliases
-#create_link .bash_profile
-create_link .bashrc
-#create_link .vimrc

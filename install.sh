@@ -22,6 +22,8 @@ testfunc () {
     echo 'test'
 }
 
+testfunc
+
 cd "$DOTFILES_DIR"
 pwd
 
